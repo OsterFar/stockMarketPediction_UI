@@ -1,0 +1,16 @@
+
+/* Navbar */
+li.nav-item {
+    padding: 0px 45px;
+}
+ul {
+    padding: 0px 12px; 
+}
+
+#logo {
+    max-width: 15vw;
+    max-height: 7vh;
+}
+#navbarSupportedContent {
+    margin-left: 15vw;
+}
