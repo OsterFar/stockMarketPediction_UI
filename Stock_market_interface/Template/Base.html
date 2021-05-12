@@ -35,7 +35,7 @@
                 <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Popular</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">CryptoCurrency</a>
+                <a class="nav-link" href="{% url 'cryptohome'%}">CryptoCurrency</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">News</a>
@@ -52,7 +52,7 @@
     </nav>
 
     <!--===============================-->
-    <div class ="container-fluid" > 
+    <div class ="container-fluid" style="display:flex; flex-wrap:wrap;"> 
         {% block Body_Content %}
           <!-- all the content will be load here from the different pages -->
         {% endblock %}
