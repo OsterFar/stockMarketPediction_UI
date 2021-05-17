@@ -1,6 +1,27 @@
 
 {% extends "Base.html" %}
 {% load static%}
+
+
+
+
+
+
+
+<!-- ACtive navbar -->
+{% block nav%}
+<li class="nav-item">
+  <a class="nav-link" id = "home" onclick="func(this.id)"aria-current="page" href="{% url 'home'%}">Popular</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link active" id = "Cryto" onclick="func(this.id)" href="{% url 'cryptohome'%}">CryptoCurrency</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link" id = "news" onclick="func(this.id)" href="{% url 'newshome'%}">News</a>
+  </li>
+{% endblock%}
+
+
 {% block Body_Header%}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
@@ -49,7 +70,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+    
+     {% comment %} <input type=button class="btn btn-primary" style="font-size: 18px"
+                                   onClick="window.location = 'dagent/' +  {{ agent.pk }}" value="Delete"> {% endcomment %}
+    <tr onClick="window.location.href = 'Cryto/primary_key';">
       <th scope="row">1</th>
       <td>Mark</td>
       <td>Otto</td>

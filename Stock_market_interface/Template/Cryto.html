@@ -1,6 +1,21 @@
 
 {% extends "Base.html" %}
 {% load static%}
+
+<!-- ACtive navbar -->
+{% block nav%}
+<li class="nav-item">
+  <a class="nav-link" id = "home" onclick="func(this.id)"aria-current="page" href="{% url 'home'%}">Popular</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link active" id = "Cryto" onclick="func(this.id)" href="{% url 'cryptohome'%}">CryptoCurrency</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link" id = "news" onclick="func(this.id)" href="{% url 'newshome'%}">News</a>
+  </li>
+{% endblock%}
+
+
 {% block Body_Header%}
 <link rel="stylesheet" href="{% static 'css/Crpyto.css' %}">
 
