@@ -1,0 +1,66 @@
+
+{% extends "Base.html" %}
+{% load static%}
+{% block Body_Header%}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/news.css' %}">
+
+<!--### any css styling if you want to add for any particular page ####-->
+{% endblock%}
+
+<!-- Content -->
+
+
+{% block Body_Content%}
+<div style = "background-color:#f7f7f7; width: 100vw; padding: 2vw; /*! overflow: hidden; */padding-bottom: 0px; ">   
+    <div class = "container-fluid">
+        <div class="container" id="heading" style ="display:block;  ">
+            <h3> StockNews </h3>
+            Hello world i m here for u to get good desert 
+        </div>
+        <div class ="Buttons_class"style="display:flex; justify-content:center; flex-wrap:wrap;">
+            <div class ="Btn-Search row">
+                <div class="col btnsplitcol "> <i class="fa fa-search"></i></div>
+                <div class="search col btnsplitcol" style ="padding: 0px;
+                padding-top: 4px;"> <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></div>
+            </div>
+            <div class ="Btn-Refresh row">
+                <div class="col btnsplitcol bg-primary" > <i class="fa fa-refresh" aria-hidden="true"></i></div>
+                
+            </div>
+            
+            
+            
+
+
+        </div>
+        
+    <div>
+</div>
+
+{% comment %} News Showing  {% endcomment %}
+<div class="container-fluid" style="border:1px solid #cfcfcf;background-color: white;">
+    <h3> Stock Articles</h3>
+    
+    {%  for new in data %}
+        {% if  forloop.counter <= 3 %}
+            <div class="container newcontainer" style="border:1px solid #cfcfcf;">
+                <div class="news-Heading" style="background-color: #e6e6e6;" >
+                    <h3> StockNo{{forloop.counter}} ::</h3>
+                    <h5> {{new.title}}</h5>
+                    <p> {{new.publishedAt}}</p> 
+                    
+                </div>
+                <div class = "container-fluid" style="padding: 2vw;" > 
+                    {{new.description}}
+                    <hr>
+                    <a href="{{new.url}}">{{new.url}}</a>
+                </div>
+            </div>
+        {% endif%}
+    {% endfor %}
+</div>
+
+
+    
+{% endblock %}
