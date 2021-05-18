@@ -5,6 +5,24 @@
 
 
 
+<script>
+    $("#refresh").click(function () => {
+      var username = $(this).val();
+      console.log("njsfbabfanfb")
+      $.ajax({
+        url: 'ajax/Refresh/',
+        data: {
+          'username': dataa
+        },
+        dataType: 'json',
+        success: function (data) {
+          var htmll = "<tr> <td> HAhha </td> </tr>"
+          $(table).append(htmll)
+        }
+      });
+
+    });
+</script>
 
 <!-- ACtive navbar -->
 {% block nav%}
@@ -37,9 +55,9 @@
             Hello world i m here for u to get good desert 
         </div>
         <div class ="Buttons_class"style="display:flex; justify-content:center; flex-wrap:wrap;">
-            <div class ="Btn-Refresh row">
+            <div class ="Btn-Refresh row" id ="refresh">
                 <div class="col btnsplitcol bg-primary" > <i class="fa fa-refresh" aria-hidden="true"></i></div>
-                <div class="col btnsplitcol"> Refresh</div>
+                <div class="col btnsplitcol"  > Refresh</div>
             </div>
             <div class ="Btn-Info row">
                 <div class="col btnsplitcol bg-warning"> <i class="fa fa-info-circle"></i></div>

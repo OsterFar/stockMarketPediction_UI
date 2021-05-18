@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 from django.contrib import admin
 from django.urls import path, include
+from . import views
 # from django.conf.urls.static import static
 # from django.conf import settings
 urlpatterns = [
@@ -24,4 +25,7 @@ urlpatterns = [
     path('', include("Stocks.urls")),
     path('Cryto',include("crypto.urls")) ,
     path('news',include("news.urls")) ,
+    path('ajax/Refresh/', views.refresh, name='refresh_name') ,
+    
+   
 ]
