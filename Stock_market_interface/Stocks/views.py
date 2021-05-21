@@ -1,6 +1,8 @@
 from django.shortcuts import render
-
+from .FunctionDictt import callFunction_object
 # Create your views here.
 def homepage(request) :
-    print("i m here")
-    return render(request , 'Home.html')
+    dictt = callFunction_object()
+    #dictt = 0
+    
+    return render(request , 'Home.html',{'content':dictt})

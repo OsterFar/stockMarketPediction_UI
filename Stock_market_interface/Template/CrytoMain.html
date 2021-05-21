@@ -64,32 +64,67 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">TICKER</th>
+      <th scope="col">NAME</th>
+      <th scope="col">PRICE</th>
+      <th scope="col">Change</th>
     </tr>
   </thead>
   <tbody>
     
      {% comment %} <input type=button class="btn btn-primary" style="font-size: 18px"
                                    onClick="window.location = 'dagent/' +  {{ agent.pk }}" value="Delete"> {% endcomment %}
-    <tr onClick="window.location.href = 'Cryto/primary_key';">
+    
+    
+    <tr onClick="window.location.href = 'Cryto/ADA_USD' ;">
       <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td>ADA_USD </td>
+      <td>{{content.ADA_USD.shortName}}</td>
+      <td>{{content.ADA_USD.dayHigh}}</td>
+      <td>{{content.ADA_USD.52WeekChange}}</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
+
+    <tr onClick="window.location.href = 'Cryto/BNB_USD' ;">
+      <th scope="row">1</th>
+      <td>BNB_USD </td>
+      <td>{{content.BNB_USD.shortName}}</td>
+      <td>{{content.BNB_USD.dayHigh}}</td>
+      <td>{{content.BNB_USD.52WeekChange}}</td>
     </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
+
+    <tr onClick="window.location.href = 'Cryto/BTC_USD' ;">
+      <th scope="row">1</th>
+      <td>BTC_USD </td>
+      <td>{{content.BTC_USD.shortName}}</td>
+      <td>{{content.BTC_USD.dayHigh}}</td>
+      <td>{{content.BTC_USD.52WeekChange}}</td>
     </tr>
+
+    <tr onClick="window.location.href = 'Cryto/DOGE_USD' ;">
+      <th scope="row">1</th>
+      <td>DOGE_USD </td>
+      <td>{{content.DOGE_USD.shortName}}</td>
+      <td>{{content.DOGE_USD.dayHigh}}</td>
+      <td>{{content.DOGE_USD.52WeekChange}}</td>
+    </tr>
+
+
+    <tr onClick="window.location.href = 'Cryto/ETH_USD' ;">
+      <th scope="row">1</th>
+      <td>ETH_USD </td>
+      <td>{{content.ETH_USD.shortName}}</td>
+      <td>{{content.ETH_USD.dayHigh}}</td>
+      <td>{{content.ETH_USD.52WeekChange}}</td>
+    </tr>
+
+
+    
+    
+
+    
+    
+    
+  
   </tbody>
 </table>
 

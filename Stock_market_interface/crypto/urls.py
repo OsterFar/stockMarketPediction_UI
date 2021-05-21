@@ -22,7 +22,7 @@ from . import views
 urlpatterns = [
     
     path('', views.cryptohomepage, name='cryptohome'),
-    path('/primary_key', views.cryptoPrimary, name='cryptoPK'),
+    path('/<slug:slug>', views.cryptoPrimary, name='cryptoPK'),
     
 ]
 #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
