@@ -14,7 +14,7 @@ def cryptohomepage(request) :
 def cryptoPrimary(request,slug) :
     
     
-    if request == "GET" :
+    if request.method == 'GET':
         return render(request , "Cryto.html")
     else :
         Okey(slug)
