@@ -22,6 +22,8 @@ from . import views
 urlpatterns = [
     
     path('', views.homepage, name='home'),
-  
+    path('Stock/<slug:slug>', views.StockPrimary, name='StockPK'),
+    path('GRAPH/<slug:slug>', views.Graph_1, name='Graph1'),
+    
 ]
 #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

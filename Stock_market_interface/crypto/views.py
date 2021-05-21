@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .ProphetFunction import Okey
 from .FunctionDictt import callFunction_object
+
 # Create your views here.
 def cryptohomepage(request) :
    # AMZN = yf.ticker('AMZN')
