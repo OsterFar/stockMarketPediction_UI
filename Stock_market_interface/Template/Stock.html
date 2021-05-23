@@ -94,8 +94,13 @@
 </table>
 
 
-<h1>Graph1</h1>
-<br>
-<h2>Graph2</h2>
+<div>
+  <button onClick="window.location.href = 'GRAPH/{{content}}' ;"> GRAPH1</button>
+<div>
+<form  METHOD="POST">
+   {% csrf_token %} 
+  <button  type="submit"> GRAPH2</button>
+
+</form>
 
 {% endblock %}

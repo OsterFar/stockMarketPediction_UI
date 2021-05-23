@@ -1,3 +1,53 @@
-<div style="width:1000;height:100">
-{{ GRAPH|safe }}
-</div>
+{% extends "Base.html" %}
+{% load static%}
+
+
+
+
+<script>
+    $("#refresh").click(function () => {
+      var username = $(this).val();
+      console.log("njsfbabfanfb")
+      $.ajax({
+        url: 'ajax/Refresh/',
+        data: {
+          'username': dataa
+        },
+        dataType: 'json',
+        success: function (data) {
+          var htmll = "<tr> <td> HAhha </td> </tr>"
+          $(table).append(htmll)
+        }
+      });
+
+    });
+</script>
+
+<!-- ACtive navbar -->
+{% block nav%}
+<li class="nav-item">
+  <a class="nav-link active" id = "home" onclick="func(this.id)"aria-current="page" href="{% url 'home'%}">Popular</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link" id = "Cryto" onclick="func(this.id)" href="{% url 'cryptohome'%}">CryptoCurrency</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link" id = "news" onclick="func(this.id)" href="{% url 'newshome'%}">News</a>
+  </li>
+{% endblock%}
+
+
+{% block Body_Header%}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<!--### any css styling if you want to add for any particular page ####-->
+{% endblock%}
+
+<!-- Content -->
+
+
+{% block Body_Content%}
+<h3> Graph Open in Next TAB </h3>
+
+    
+{% endblock %}

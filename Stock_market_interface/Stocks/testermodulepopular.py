@@ -13,9 +13,8 @@ import pandas as pd
 import copy
 import keras.backend as K
 from tensorflow.keras.models import load_model
-import plotly
 
-def tester_function(token) :
+def function(token) :
     #Specifying stock tickers for different stocks
     stock_ticker_tsla = token
 
@@ -43,8 +42,9 @@ def tester_function(token) :
 
     #Loading models of stocks that have already been trained
     regressor_tsla = load_model('popularModels/tsla.h5')
+    print(regressor_tsla)
 
-
+    #E:\DjangoFiles\stockMarketPediction_UI\Stock_market_interface\Stock_market_interface\Stocks\popularModels
     experimental_relax_shapes=True
     #Predicting Stock prices and inverse scaling to original values
     predicted_stock_price_tsla = regressor_tsla.predict(X_test_tsla)
@@ -63,7 +63,8 @@ def tester_function(token) :
 
     a = tfunc.plotter(newtest_tsla, testdata_tsla, predicted_stock_df_tsla, stock_ticker_tsla)
 
-    
+    print(a)
+    import plotly
     type(a)
     graph_div = plotly.offline.plot(a, auto_open = False, output_type="div")
     return graph_div

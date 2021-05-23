@@ -47,7 +47,7 @@ def plotter(newtest, testdata, predicted_stock_df, stock_ticker):
   })
   fig = go.Figure(data=data, layout=layout)
   fig.update_layout(barmode='group', hovermode='x')
-  #fig.show()
+  fig.show()
   return fig
 
 
