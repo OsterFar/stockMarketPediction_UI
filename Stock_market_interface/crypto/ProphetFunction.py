@@ -4,8 +4,6 @@
 # # **Functions**
 
 # In[2]:
-
-
 import numpy as np 
 import sys
 import subprocess
@@ -48,100 +46,8 @@ def plotter_prophet(model, frcst):
     fig.update_layout(hovermode='x')
     fig.show()
 
-
-# In[3]:
-
-
-#get_ipython().system('pip install yfinance')
-
-
-# # **Future Prediction Plots**
-
-# ### **APPLE (AAPL) plot**
-
-# In[ ]:
-
 def Okey(slug) :
     history = get_ticker_hist(slug)
     frame = get_frame(history)
     f, m = prophet_pred(frame)
     plotter_prophet(m, f)
-
-
-# # In[10]:
-
-
-# #get_ipython().system('pip install fbprophet')
-
-
-# # In[9]:
-
-
-# #get_ipython().system('pip install lunarcalendar')
-
-
-# # ### **AMAZON (AMZN) plot**
-
-# # In[48]:
-
-
-# history = get_ticker_hist('AMZN')
-# frame = get_frame(history)
-# f, m = prophet_pred(frame)
-# plotter_prophet(m, f)
-
-
-# # ### **ALIBABA (BABA) plot**
-
-# # In[50]:
-
-
-# history = get_ticker_hist('BABA')
-# frame = get_frame(history)
-# f, m = prophet_pred(frame)
-# plotter_prophet(m, f)
-
-
-# # ### **GAMESTOP (GME) plot**
-
-# # In[52]:
-
-
-# history = get_ticker_hist('GME')
-# frame = get_frame(history)
-# f, m = prophet_pred(frame)
-# plotter_prophet(m, f)
-
-
-# # ### **IROBOT (IRBT) plot**
-
-# # In[53]:
-
-
-# history = get_ticker_hist('IRBT')
-# frame = get_frame(history)
-# f, m = prophet_pred(frame)
-# plotter_prophet(m, f)
-
-
-# # ### **SQUARE (SQ) plot**
-
-# # In[54]:
-
-
-# history = get_ticker_hist('SQ')
-# frame = get_frame(history)
-# f, m = prophet_pred(frame)
-# plotter_prophet(m, f)
-
-
-# # ### **TESLA(TSLA) plot**
-
-# # In[55]:
-
-
-# history = get_ticker_hist('TSLA')
-# frame = get_frame(history)
-# f, m = prophet_pred(frame)
-# plotter_prophet(m, f)
-

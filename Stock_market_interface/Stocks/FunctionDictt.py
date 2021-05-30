@@ -6,7 +6,7 @@ BABA = yf.Ticker("BABA")
 gme = yf.Ticker("GME")
 irbt = yf.Ticker("IRBT")
 sq = yf.Ticker("SQ")
-aadp = yf.Ticker("AADP")
+aadp = yf.Ticker("AAPL")
     
 def callFunction_object() :
    
@@ -17,7 +17,7 @@ def callFunction_object() :
         'gme' : gme.info ,
         'irbt' : irbt.info ,
         'sq' : sq.info ,
-        'aadp' : aadp.info ,
+        'aadp' : aadp.info ,#change
         "msft" : msft.info 
   
     }

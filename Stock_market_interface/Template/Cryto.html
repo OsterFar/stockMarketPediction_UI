@@ -29,16 +29,16 @@
 <div style = "background-color:#f7f7f7; width: 100vw; padding: 2vw; ">  
     <div class = "container-fluid">
         <div class="container" id="heading" style ="display:flex; justify-content: center; flex-wrap: wrap;">
-            <h3> POPULAR STOCK LISTING </h3>
-            Hello world i m here for u to get good desert 
+            <h3> Active Cryto Stocks  </h3>
+            Result were generated Few minutes ago . Pricing data is being Updated  , Currency in USD 
         </div>
         <div class ="Buttons_class"style="display:flex; justify-content:center; flex-wrap:wrap;">
             
             <div  id = "container-btn" style="display:flex; flex-direction: column; ">
-                <h4 class="display-4">Hello world</h4>
+                <h4 class="display-4"> BitCoin-USD(BTC-USD)</h4>
                 <div id = "Btn-container">
                     <div id = "paragraph">
-                        GET /static/fonts/fontawesome-webfont.ttf?v=4.7.0 HTTP/1.1" 404 1721 "GET /static/fonts/fontawesome-webfont.woff?v=4.7.0 HTTP/1.1" 404 1724
+                        Bitcoin is a digital currency that is not tied to a bank or government and allows users to spend money anonymously. The coins are created by users who “mine” them by lending computing power to verify other users' transactions. They receive Bitcoins in exchange
                     </div>
                     <div class ="Btn-Refresh row">
                         <div class="col btnsplitcol bg-primary" > <i class="fa fa-refresh" aria-hidden="true"></i></div>
@@ -65,41 +65,36 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Last</th>
-      <th scope="col">Last</th>
-      <th scope="col">Last</th>
+      <th scope="col">name</th>
+      <th scope="col">startDate</th>
+      <th scope="col">averageVolume10days</th>
+      <th scope="col">quoteType</th>
+      <th scope="col">regularMarketPrice</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>Mark</td>
-      <td>Mark</td>
-      <td>Mark</td>
+      <td>{{content.info.sharesOutstanding}}</td>
+      <td>{{content.info.startDate}}</td>
+      <td>{{content.info.averageVolume10days}}</td>
+      <td>{{content.info.quoteType}}</td>
+      <td>{{content.info.regularMarketPrice}}</td>
+
+      
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>Jacob</td>
-      <td>Mark</td>
-      <td>Mark</td>
-    </tr>
+    
    
   </tbody>
 </table>
 
 
 <div>
-  <button onClick="'window.location.href = GRAPH/tsla';"> GRAPH1</button>
+  <button class="button" onClick="window.location.href = 'graphCryto/{{content.slug}}' ;"> GRAPH1</button>
 <div>
 <form  METHOD="POST">
    {% csrf_token %} 
-  <button  type="submit"> GRAPH2</button>
+  <button class="button" type="submit"> GRAPH2</button>
 
 </form>
   

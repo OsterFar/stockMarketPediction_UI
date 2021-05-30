@@ -23,6 +23,7 @@ urlpatterns = [
     
     path('', views.cryptohomepage, name='cryptohome'),
     path('/<slug:slug>', views.cryptoPrimary, name='cryptoPK'),
+    path('/graphCryto/<slug:slug>', views.GraphView, name='graph1'),
     
 ]
 #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

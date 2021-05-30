@@ -2,13 +2,18 @@
 {% extends "Base.html" %}
 {% load static%}
 
+<script>
+  function func_alert(){
+    alert("CLICK ON ANY OF THE STOCK TO GET INFORMATION OF PARTICULAR STOCK")
+  }
+</script>
 <!-- ACtive navbar -->
 {% block nav%}
 <li class="nav-item">
-  <a class="nav-link" id = "home" onclick="func(this.id)"aria-current="page" href="{% url 'home'%}">Popular</a>
+  <a class="nav-link active" id = "home" onclick="func(this.id)"aria-current="page" href="{% url 'home'%}">Popular</a>
   </li>
   <li class="nav-item">
-  <a class="nav-link active" id = "Cryto" onclick="func(this.id)" href="{% url 'cryptohome'%}">CryptoCurrency</a>
+  <a class="nav-link " id = "Cryto" onclick="func(this.id)" href="{% url 'cryptohome'%}">CryptoCurrency</a>
   </li>
   <li class="nav-item">
   <a class="nav-link" id = "news" onclick="func(this.id)" href="{% url 'newshome'%}">News</a>
@@ -29,23 +34,24 @@
 <div style = "background-color:#f7f7f7; width: 100vw; padding: 2vw; ">  
     <div class = "container-fluid">
         <div class="container" id="heading" style ="display:flex; justify-content: center; flex-wrap: wrap;">
-            <h3> POPULAR STOCK LISTING </h3>
+            <h3> <bold> POPULAR STOCK LISTING <bold></h3>
             Hello world i m here for u to get good desert 
         </div>
         <div class ="Buttons_class"style="display:flex; justify-content:center; flex-wrap:wrap;">
             
             <div  id = "container-btn" style="display:flex; flex-direction: column; ">
-                <h4 class="display-4">Hello world</h4>
+                <h4 class="display-4">{{content.slug}}</h4>
                 <div id = "Btn-container">
                     <div id = "paragraph">
-                        GET /static/fonts/fontawesome-webfont.ttf?v=4.7.0 HTTP/1.1" 404 1721 "GET /static/fonts/fontawesome-webfont.woff?v=4.7.0 HTTP/1.1" 404 1724
+                        {{content.heading}}
                     </div>
                     <div class ="Btn-Refresh row">
                         <div class="col btnsplitcol bg-primary" > <i class="fa fa-refresh" aria-hidden="true"></i></div>
                         {% comment %} <div class="col btnsplitcol"> Refresh</div> {% endcomment %}
                     </div>
                     <div class ="Btn-Info row">
-                        <div class="col btnsplitcol bg-warning"> <i class="fa fa-info-circle"></i></div>
+                        <div  class="col btnsplitcol bg-warning" onclick="alert('click on any of the Stock to get the stock information  ')"> <i class="fa fa-info-circle"></i></div>
+                
                         {% comment %} <div class="col btnsplitcol"> Info</div> {% endcomment %}
                     </div>
                 </div>
@@ -65,41 +71,55 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Last</th>
-      <th scope="col">Last</th>
-      <th scope="col">Last</th>
+      <th scope="col">DAYHIGH</th>
+      <th scope="col">fiftyDayAverage</th>
+      <th scope="col">regularMarketDayHigh</th>
+      <th scope="col">currency</th>
+      
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>Mark</td>
-      <td>Mark</td>
-      <td>Mark</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>Jacob</td>
-      <td>Mark</td>
-      <td>Mark</td>
-    </tr>
-   
+      <td>{{content.info.dayHigh}}</td>
+      <td>{{content.info.fiftyDayAverage}}</td>
+      <td>{{content.info.regularMarketDayHigh}}</td>
+      <td>{{content.info.currency}}</td>
+      
+    
   </tbody>
 </table>
 
+<hr>
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
 
+      <th scope="col">previousClose</th>
+      <th scope="col">regularMarketOpen</th>
+      <th scope="col">twoHundredDayAverage</th>
+      <th scope="col">sharesOutstanding</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      
+      <td>{{content.info.previousClose}}</td>
+      <td>{{content.info.regularMarketOpen}}</td>
+      <td>{{content.info.twoHundredDayAverage}}</td>
+      <td>{{content.info.sharesOutstanding}}</td>
+    </tr>
+    
+  </tbody>
+</table>
 <div>
-  <button onClick="window.location.href = 'GRAPH/{{content}}' ;"> GRAPH1</button>
+  <button class= "button"onClick="window.location.href = 'GRAPH/{{content.slug}}' ;"> GRAPH1</button>
 <div>
 <form  METHOD="POST">
    {% csrf_token %} 
-  <button  type="submit"> GRAPH2</button>
+  <button   class= "button" type="submit"> GRAPH2</button>
 
 </form>
 

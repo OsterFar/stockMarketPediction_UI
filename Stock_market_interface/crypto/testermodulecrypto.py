@@ -14,60 +14,61 @@ import copy
 import keras.backend as K
 from tensorflow.keras.models import load_model
 
-def function(token) :
+def tester_Cryto_function(token) :
     #Specifying stock tickers for different stocks
-    stock_ticker_tsla = token
+    stock_ticker_ada = '{0}-USD'.format(token.upper())
+    print("================================ ",stock_ticker_ada)
 
     #Getting stock data for training models that have already been trained
-    TSLA = tfunc.download_stock_data(stock_ticker_tsla, '2010-01-01','2021-01-01')
+    ADA = tfunc.download_stock_data(stock_ticker_ada, '2010-01-01','2021-01-01')
 
 
     #converting to dataframes individually
-    tsla_data = tfunc.get_df(TSLA)
-
+    ada_data = tfunc.get_df(ADA)
 
     #Getting stock data for testing 
-    testdataframe_tsla = tfunc.download_stock_data(stock_ticker_tsla, '2021-01-01','2021-05-16')
+    testdataframe_ada = tfunc.download_stock_data(stock_ticker_ada, '2021-01-01','2021-05-18')
 
 
     #Copying testing data into new dataframes
-    newtest_tsla = copy.deepcopy(testdataframe_tsla)
-
+    newtest_ada = copy.deepcopy(testdataframe_ada)
 
     #Getting dataframes for testing data
-    testdata_tsla = tfunc.get_df(testdataframe_tsla)
+    testdata_ada = tfunc.get_df(testdataframe_ada)
+
 
     #Getting test set that has already been preprocessed and scaled by MinMaxScalar
-    X_test_tsla = tfunc.get_test_set(stock_train_data=tsla_data, testdata=testdata_tsla)
+    X_test_ada = tfunc.get_test_set(stock_train_data=ada_data, testdata=testdata_ada)
+
 
     #Loading models of stocks that have already been trained
-    regressor_tsla = load_model('popularModels/{0}.h5'.format(token))
-    print(regressor_tsla)
+    regressor_ada = load_model('cryptoModels/{0}.h5'.format(token))
 
-    #E:\DjangoFiles\stockMarketPediction_UI\Stock_market_interface\Stock_market_interface\Stocks\popularModels
     experimental_relax_shapes=True
     #Predicting Stock prices and inverse scaling to original values
-    predicted_stock_price_tsla = regressor_tsla.predict(X_test_tsla)
-    predicted_stock_price_tsla = tfunc.revert_stock_price(predicted_stock_price_tsla)
+    predicted_stock_price_ada = regressor_ada.predict(X_test_ada)
+    predicted_stock_price_ada = tfunc.revert_stock_price(predicted_stock_price_ada)
     K.clear_session()
 
-
-
     #Getting dataframes from predicted values so as to ease the plotting process
-    predicted_stock_df_tsla = pd.DataFrame()
+    predicted_stock_df_ada = pd.DataFrame()
 
 
-    predicted_stock_df_tsla = pd.DataFrame(data=predicted_stock_price_tsla, index=newtest_tsla.index, columns=['y_pred'])
+    predicted_stock_df_ada = pd.DataFrame(data=predicted_stock_price_ada, index=newtest_ada.index, columns=['y_pred'])
 
     """## **Plotting trends of Popular Stocks**"""
 
-    a = tfunc.plotter(newtest_tsla, testdata_tsla, predicted_stock_df_tsla, stock_ticker_tsla)
-
+    a = tfunc.plotter(newtest_ada, testdata_ada, predicted_stock_df_ada, stock_ticker_ada)
     print(a)
     import plotly
     type(a)
     graph_div = plotly.offline.plot(a, auto_open = False, output_type="div")
     return graph_div
+
+
+    
+    
+
 
 
 

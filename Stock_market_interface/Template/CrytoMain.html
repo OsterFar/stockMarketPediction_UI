@@ -1,7 +1,11 @@
 
 {% extends "Base.html" %}
 {% load static%}
-
+<script>
+  function func_alert(){
+    alert("CLICK ON ANY OF THE STOCK TO GET INFORMATION OF PARTICULAR STOCK")
+  }
+</script>
 <!-- ACtive navbar -->
 {% block nav%}
 <li class="nav-item">
@@ -26,6 +30,30 @@
 
 
 {% block Body_Content%}
+
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
 <div style = "background-color:#f7f7f7; width: 100vw; padding: 2vw; ">   
     <div class = "container-fluid">
         <div class="container" id="heading" style ="display:flex; justify-content: center; flex-wrap: wrap;">
@@ -34,17 +62,27 @@
         </div>
         <div class ="Buttons_class"style="display:flex; justify-content:center; flex-wrap:wrap;">
             <div class ="Btn-Refresh row">
-                <div class="col btnsplitcol bg-primary" > <i class="fa fa-refresh" aria-hidden="true"></i></div>
-                <div class="col btnsplitcol"> Refresh</div>
+                <form METHOD="POST"> 
+                  {% csrf_token %}
+                  <button type="submit">
+                    <div class="col btnsplitcol bg-primary" > <i class="fa fa-refresh" aria-hidden="true"></i></div>
+                    <div class="col btnsplitcol"> Refresh</div>    
+                  </button>
+                  
+
+                </form>
+                
             </div>
             <div class ="Btn-Info row">
-                <div class="col btnsplitcol bg-warning"> <i class="fa fa-info-circle"></i></div>
+                <div  class="col btnsplitcol bg-warning" onclick="alert('click on any of the Stock to get the stock information ')"> <i class="fa fa-info-circle"></i></div>
                 <div class="col btnsplitcol"> Info</div>
             </div>
             <div class ="Btn-Search row">
-                <div class="col btnsplitcol "> <i class="fa fa-search"></i></div>
+                {% comment %} <div class="col btnsplitcol "> <i class="fa fa-search"></i></div>
+                
                 <div class="search col btnsplitcol" style ="padding: 0px;
-                padding-top: 4px;"> <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></div>
+                  padding-top: 4px;"> <input class="form-control me-2" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." aria-label="Search"></div>
+                 {% endcomment %}
             </div>
             
 
@@ -54,9 +92,9 @@
     <div>
 </div>
 
-<table class="table table-dark table-striped">
+<table class="myTable table table-dark table-striped">
   <thead>
-    <tr>
+    <tr class="Header">
       <th scope="col">#</th>
       <th scope="col">TICKER</th>
       <th scope="col">NAME</th>
@@ -70,7 +108,7 @@
                                    onClick="window.location = 'dagent/' +  {{ agent.pk }}" value="Delete"> {% endcomment %}
     
     
-    <tr onClick="window.location.href = 'Cryto/ADA-USD' ;">
+    <tr onClick="window.location.href = 'Cryto/ADA' ;">
       <th scope="row">1</th>
       <td>ADA_USD </td>
       <td>{{content.ADA_USD.shortName}}</td>
@@ -78,7 +116,7 @@
       <td>{{content.ADA_USD.52WeekChange}}</td>
     </tr>
 
-    <tr onClick="window.location.href = 'Cryto/BNB-USD' ;">
+    <tr onClick="window.location.href = 'Cryto/BNB' ;">
       <th scope="row">1</th>
       <td>BNB_USD </td>
       <td>{{content.BNB_USD.shortName}}</td>
@@ -86,7 +124,7 @@
       <td>{{content.BNB_USD.52WeekChange}}</td>
     </tr>
 
-    <tr onClick="window.location.href = 'Cryto/BTC-USD' ;">
+    <tr onClick="window.location.href = 'Cryto/BTC' ;">
       <th scope="row">1</th>
       <td>BTC_USD </td>
       <td>{{content.BTC_USD.shortName}}</td>
@@ -94,7 +132,7 @@
       <td>{{content.BTC_USD.52WeekChange}}</td>
     </tr>
 
-    <tr onClick="window.location.href = 'Cryto/DOGE-USD' ;">
+    <tr onClick="window.location.href = 'Cryto/DOGE' ;">
       <th scope="row">1</th>
       <td>DOGE_USD </td>
       <td>{{content.DOGE_USD.shortName}}</td>
@@ -103,7 +141,7 @@
     </tr>
 
 
-    <tr onClick="window.location.href = 'Cryto/ETH-USD' ;">
+    <tr onClick="window.location.href = 'Cryto/ETH' ;">
       <th scope="row">1</th>
       <td>ETH_USD </td>
       <td>{{content.ETH_USD.shortName}}</td>

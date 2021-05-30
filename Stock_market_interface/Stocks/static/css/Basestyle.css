@@ -23,3 +23,13 @@ ul {
     margin-left: 15vw;
 }
 
+.button {
+    width: 100vw;
+    border-radius: 42px;
+    background: dimgrey;
+}
+.button:hover {
+    width: 100vw;
+    border-radius: 42px;
+    background: rgb(61, 61, 61);
+}
